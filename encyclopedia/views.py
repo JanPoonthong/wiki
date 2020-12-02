@@ -15,6 +15,7 @@ def search(request, name):
     except:
         return render(request, "encyclopedia/error.html")
 
+
 def edit_page(request, edit_title):
     content = util.get_entry(edit_title)
     return render(request, "encyclopedia/edit.html", {
