@@ -10,4 +10,7 @@ def index(request):
 
 
 def search(request, name):
-    return render(request, f"encyclopedia/{name}.html")
+    try:
+        return render(request, f"encyclopedia/{name}.html")
+    except:
+        return render(request, "encyclopedia/error.html")
