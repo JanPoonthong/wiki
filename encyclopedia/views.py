@@ -9,21 +9,5 @@ def index(request):
     })
 
 
-def Django(request):
-    return render(request, 'encyclopedia/django.html')
-
-
-def CSS(request):
-    return render(request, 'encyclopedia/css.html')
-
-
-def Git(request):
-    return render(request, 'encyclopedia/git.html')
-
-
-def HTML(request):
-    return render(request, 'encyclopedia/HTML.html')
-
-
-def Python(request):
-    return render(request, 'encyclopedia/python.html')
+def search(request, name):
+    return render(request, f'encyclopedia/{name}.html')
