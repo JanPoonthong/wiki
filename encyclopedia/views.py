@@ -10,4 +10,4 @@ def index(request):
 
 
 def search(request, name):
-    return render(request, f'encyclopedia/{name}.html')
+    return render(request, f"encyclopedia/{name}.html")
