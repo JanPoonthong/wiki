@@ -39,3 +39,6 @@ def edit(request, edit_entry):
             "title": edit_entry,
             "content": content
         })
+
+def newentry(request):
+    return render(request, "encyclopedia/newentry.html")
