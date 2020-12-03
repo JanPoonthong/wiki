@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django import forms
 
 from . import util
 
@@ -9,11 +10,14 @@ def index(request):
     })
 
 
-def search(request, name):
+def entry(request, entry_title):
+    entry_title = entry_title.lower()
     try:
-        return render(request, f"encyclopedia/{name}.html")
+        return render(request, f"encyclopedia/{entry_title}.html")
     except:
-        return render(request, "encyclopedia/error.html")
+        return render(request, "encyclopedia/error.html", {
+            "title": entry_title
+        })
 
 
 def edit_page(request, edit_title):
