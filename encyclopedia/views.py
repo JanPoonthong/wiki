@@ -15,6 +15,7 @@ class EditForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control col-md-8 col-lg-8', 'rows': 10}))
     edit = forms.BooleanField(initial=False, widget=forms.HiddenInput(), required=False)
 
+
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries(),
@@ -33,6 +34,7 @@ def entry(request, entry_title):
             "title": entry_title
         })
 
+
 def edit(request, edit_entry):
     content = util.get_entry(edit_entry)
     if content is not None:
@@ -50,6 +52,7 @@ def edit(request, edit_entry):
         return render(request, "encyclopedia/nonexistingentry.html", {
             "title": edit_entry
         })
+
 
 def newentry(request):
     if request.method == "POST":
@@ -74,10 +77,12 @@ def newentry(request):
             "form": EditForm(),
         })
 
+
 def random(request):
     entries = util.list_entries()
     random_entry = secrets.choice(entries)
     return HttpResponseRedirect(reverse("entry", kwargs={'entry_title': random_entry}))
+
 
 def search(request):
     value = request.GET.get('q', '')
